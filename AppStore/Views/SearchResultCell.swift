@@ -10,6 +10,14 @@ import UIKit
 class SearchResultCell: UICollectionViewCell {
     
     
+    //MARK:- Properties
+    
+    // Screenshot images
+    lazy var screenshot1 = createScreenshotImage()
+    lazy var screenshot2 = createScreenshotImage()
+    lazy var screenshot3 = createScreenshotImage()
+    
+    
     let appIconImageView: UIImageView = {
         let iv = UIImageView()
         iv.backgroundColor = .red
@@ -53,32 +61,48 @@ class SearchResultCell: UICollectionViewCell {
         return button
     }()
     
-    
+    //MARK:- Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let labelsStackView = UIStackView(arrangedSubviews: [
-            nameLabel, categoryLabel, ratingsLabel
-        ])
+        //Labels stackView
+        let labelsStackView = VerticalStackView(arrangedSubviews: [nameLabel, categoryLabel, ratingsLabel])
         
-        labelsStackView.axis = .vertical
-            
-        let stackView = UIStackView(arrangedSubviews: [
+        
+        //Info top stack view
+        let infoTopStackView = UIStackView(arrangedSubviews: [
             appIconImageView, labelsStackView, getButton
         ])
+        backgroundColor = .white
+        infoTopStackView.spacing = 12
+        infoTopStackView.alignment = .center
+        addSubview(infoTopStackView)
         
-        backgroundColor = .yellow
-        stackView.spacing = 12
-        stackView.alignment = .center
+        //Screenshots stackView
+        let screenshotsStackView = UIStackView(arrangedSubviews: [screenshot1, screenshot2, screenshot3])
+        screenshotsStackView.axis = .horizontal
+        screenshotsStackView.spacing = 12
+        screenshotsStackView.distribution = .fillEqually
+        addSubview(screenshotsStackView)
         
+        //Overall cell stackView
+        let overallCellStackView = VerticalStackView(arrangedSubviews: [infoTopStackView, screenshotsStackView], spacing: 16)
         
-        addSubview(stackView)
-        stackView.fillSuperview(padding: .init(top: 16, left: 16, bottom: 16, right: 16))
-        
+        addSubview(overallCellStackView)
+        overallCellStackView.fillSuperview(padding: .init(top: 16, left: 16, bottom: 16, right: 16))
     }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    
+    
+    //MARK:- Methods
+    func createScreenshotImage() -> UIImageView {
+        let iv = UIImageView()
+        iv.backgroundColor = .blue
+        iv.layer.cornerRadius = 15
+        return iv
     }
 }

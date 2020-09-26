@@ -17,6 +17,7 @@
 		ED7D0735251D2393000F72C1 /* AppsSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7D0734251D2393000F72C1 /* AppsSearchController.swift */; };
 		ED8BD258251E0149003AB0BA /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8BD257251E0149003AB0BA /* SearchResultCell.swift */; };
 		ED8BD25C251F711E003AB0BA /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8BD25B251F711E003AB0BA /* UIView+Layout.swift */; };
+		EDE62495251FBB0200D43772 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE62494251FBB0200D43772 /* VerticalStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		ED7D0734251D2393000F72C1 /* AppsSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsSearchController.swift; sourceTree = "<group>"; };
 		ED8BD257251E0149003AB0BA /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		ED8BD25B251F711E003AB0BA /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		EDE62494251FBB0200D43772 /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				ED8BD25B251F711E003AB0BA /* UIView+Layout.swift */,
+				EDE62494251FBB0200D43772 /* VerticalStackView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				ED7D0712251C83EF000F72C1 /* AppDelegate.swift in Sources */,
 				ED7D0735251D2393000F72C1 /* AppsSearchController.swift in Sources */,
 				ED8BD258251E0149003AB0BA /* SearchResultCell.swift in Sources */,
+				EDE62495251FBB0200D43772 /* VerticalStackView.swift in Sources */,
 				ED8BD25C251F711E003AB0BA /* UIView+Layout.swift in Sources */,
 				ED7D0714251C83EF000F72C1 /* SceneDelegate.swift in Sources */,
 			);
