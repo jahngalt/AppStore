@@ -14,6 +14,8 @@
 		ED7D071B251C83F3000F72C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED7D071A251C83F3000F72C1 /* Assets.xcassets */; };
 		ED7D071E251C83F3000F72C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED7D071C251C83F3000F72C1 /* LaunchScreen.storyboard */; };
 		ED7D072C251C84A7000F72C1 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7D072B251C84A7000F72C1 /* BaseTabBarController.swift */; };
+		ED7D0735251D2393000F72C1 /* AppsSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7D0734251D2393000F72C1 /* AppsSearchController.swift */; };
+		ED8BD258251E0149003AB0BA /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8BD257251E0149003AB0BA /* SearchResultCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		ED7D071D251C83F3000F72C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED7D071F251C83F3000F72C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED7D072B251C84A7000F72C1 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		ED7D0734251D2393000F72C1 /* AppsSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsSearchController.swift; sourceTree = "<group>"; };
+		ED8BD257251E0149003AB0BA /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 		ED7D0710251C83EF000F72C1 /* AppStore */ = {
 			isa = PBXGroup;
 			children = (
+				ED8BD256251E011D003AB0BA /* Views */,
+				ED7D072E251D1F58000F72C1 /* Controlles */,
 				ED7D0711251C83EF000F72C1 /* AppDelegate.swift */,
 				ED7D0713251C83EF000F72C1 /* SceneDelegate.swift */,
 				ED7D0715251C83EF000F72C1 /* ViewController.swift */,
@@ -65,9 +71,25 @@
 				ED7D071A251C83F3000F72C1 /* Assets.xcassets */,
 				ED7D071C251C83F3000F72C1 /* LaunchScreen.storyboard */,
 				ED7D071F251C83F3000F72C1 /* Info.plist */,
-				ED7D072B251C84A7000F72C1 /* BaseTabBarController.swift */,
 			);
 			path = AppStore;
+			sourceTree = "<group>";
+		};
+		ED7D072E251D1F58000F72C1 /* Controlles */ = {
+			isa = PBXGroup;
+			children = (
+				ED7D072B251C84A7000F72C1 /* BaseTabBarController.swift */,
+				ED7D0734251D2393000F72C1 /* AppsSearchController.swift */,
+			);
+			path = Controlles;
+			sourceTree = "<group>";
+		};
+		ED8BD256251E011D003AB0BA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ED8BD257251E0149003AB0BA /* SearchResultCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +165,8 @@
 				ED7D072C251C84A7000F72C1 /* BaseTabBarController.swift in Sources */,
 				ED7D0716251C83EF000F72C1 /* ViewController.swift in Sources */,
 				ED7D0712251C83EF000F72C1 /* AppDelegate.swift in Sources */,
+				ED7D0735251D2393000F72C1 /* AppsSearchController.swift in Sources */,
+				ED8BD258251E0149003AB0BA /* SearchResultCell.swift in Sources */,
 				ED7D0714251C83EF000F72C1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
