@@ -49,7 +49,7 @@ class SearchResultCell: UICollectionViewCell {
         button.backgroundColor = UIColor(white: 0.95, alpha: 1)
         button.widthAnchor.constraint(equalToConstant: 80).isActive = true
         button.heightAnchor.constraint(equalToConstant: 32).isActive = true
-        button.layer.cornerRadius = 16
+        button.layer.cornerRadius = 16  
         return button
     }()
     
@@ -62,7 +62,7 @@ class SearchResultCell: UICollectionViewCell {
         ])
         
         labelsStackView.axis = .vertical
-        
+            
         let stackView = UIStackView(arrangedSubviews: [
             appIconImageView, labelsStackView, getButton
         ])
@@ -73,11 +73,8 @@ class SearchResultCell: UICollectionViewCell {
         
         
         addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true 
+        stackView.fillSuperview(padding: .init(top: 16, left: 16, bottom: 16, right: 16))
+        
     }
     
     
