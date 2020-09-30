@@ -13,7 +13,7 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
     
     //MARK:- Properties
     fileprivate let cellId = "CellId"
-    
+    fileprivate var appResults = [Result]()
     
     //MARK:- Init
     init() {
@@ -29,19 +29,25 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
         super.viewDidLoad()
         collectionView.register(SearchResultCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.backgroundColor = .white
+        fetchITunesApp()
     }
     
     
     //number of cells in the screen
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return appResults.count
     }
     
     
-    //create cell dequeue
+    //dequeuing our cell 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! SearchResultCell
+        //if we're using CollectionView we should use indexPath.Item 
+        let appResult = appResults[indexPath.item]
         
+        cell.nameLabel.text = appResult.trackName
+        cell.categoryLabel.text = appResult.primaryGenreName
+        cell.ratingsLabel.text = "Rating: \(appResult.averageUserRating ?? 0)"
         return cell
     }
     
@@ -51,4 +57,19 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
         return CGSize(width: view.frame.width, height: 350)
     }
     
+
+    fileprivate func fetchITunesApp() {
+        Service.shared.fetchApps { (results, err) in
+            
+            if let err = err {
+                print("Failed to fetch app: ", err)
+                return
+            }
+            
+            self.appResults = results
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
 }
