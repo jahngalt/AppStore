@@ -12,10 +12,33 @@ class SearchResultCell: UICollectionViewCell {
     
     //MARK:- Properties
     
+    
+    var appResult: Result! {
+        didSet {
+            nameLabel.text = appResult.trackName
+            categoryLabel.text = appResult.primaryGenreName
+            ratingsLabel.text = "Rating: \(appResult.averageUserRating ?? 0)"
+            
+            
+            let url = URL(string: appResult.artworkUrl100)
+            appIconImageView.sd_setImage(with: url)
+            screenshot1ImageView.sd_setImage(with: URL(string:appResult.screenshotUrls[0]))
+            
+            if appResult.screenshotUrls.count > 1 {
+                screenshot2ImageView.sd_setImage(with: URL(string:appResult.screenshotUrls[1]))
+            }
+            
+            if appResult.screenshotUrls.count > 2 {
+                screenshot3ImageView.sd_setImage(with: URL(string:appResult.screenshotUrls[2]))
+            }
+        }
+    }
+    
+    
     // Screenshot images
-    lazy var screenshot1 = createScreenshotImage()
-    lazy var screenshot2 = createScreenshotImage()
-    lazy var screenshot3 = createScreenshotImage()
+    lazy var screenshot1ImageView = createScreenshotImage()
+    lazy var screenshot2ImageView = createScreenshotImage()
+    lazy var screenshot3ImageView = createScreenshotImage()
     
     
     let appIconImageView: UIImageView = {
@@ -24,6 +47,7 @@ class SearchResultCell: UICollectionViewCell {
         iv.widthAnchor.constraint(equalToConstant: 64).isActive = true
         iv.heightAnchor.constraint(equalToConstant: 64).isActive = true
         iv.layer.cornerRadius = 12
+        iv.clipsToBounds = true
         return iv
     }()
     
@@ -79,7 +103,7 @@ class SearchResultCell: UICollectionViewCell {
         addSubview(infoTopStackView)
         
         //Screenshots stackView
-        let screenshotsStackView = UIStackView(arrangedSubviews: [screenshot1, screenshot2, screenshot3])
+        let screenshotsStackView = UIStackView(arrangedSubviews: [screenshot1ImageView, screenshot2ImageView, screenshot3ImageView])
         screenshotsStackView.axis = .horizontal
         screenshotsStackView.spacing = 12
         screenshotsStackView.distribution = .fillEqually
@@ -101,8 +125,13 @@ class SearchResultCell: UICollectionViewCell {
     //MARK:- Methods
     func createScreenshotImage() -> UIImageView {
         let iv = UIImageView()
-        iv.backgroundColor = .blue
-        iv.layer.cornerRadius = 15
+        iv.backgroundColor = .white
+        iv.contentMode = .scaleAspectFill
+        iv.layer.cornerRadius = 8
+        iv.clipsToBounds = true
+        
+        //iv.layer.borderWidth = 0.5
+        //iv.layer.borderColor = UIColor(white: 0.5, alpha: 0.5).cgColor
         return iv
     }
 }

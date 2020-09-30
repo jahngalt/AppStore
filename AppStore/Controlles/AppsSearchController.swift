@@ -6,6 +6,8 @@
 //
 
 import UIKit
+//Pod for asyncronous image download and caching
+import SDWebImage
 
 
 
@@ -44,10 +46,7 @@ class AppsSearchController: UICollectionViewController, UICollectionViewDelegate
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! SearchResultCell
         //if we're using CollectionView we should use indexPath.Item 
         let appResult = appResults[indexPath.item]
-        
-        cell.nameLabel.text = appResult.trackName
-        cell.categoryLabel.text = appResult.primaryGenreName
-        cell.ratingsLabel.text = "Rating: \(appResult.averageUserRating ?? 0)"
+        cell.appResult = appResult
         return cell
     }
     
