@@ -15,10 +15,11 @@ class Service {
     
     private init() {}
     
-    func fetchApps(completion: @escaping ([Result], Error?) -> ()) {
+    func fetchApps(searchItem: String, completion: @escaping ([Result], Error?) -> ()) {
+        
         
         //create URLString
-        let urlString = "https://itunes.apple.com/search?term=instagram&entity=software"
+        let urlString = "https://itunes.apple.com/search?term=\(searchItem)&entity=software"
         //convert URLString to URL
         guard let url = URL(string: urlString) else { return }
         
