@@ -8,19 +8,13 @@
 import UIKit
 
 
-
-
-
 class AppsRowCell: UICollectionViewCell {
-    
     
     
     let imageView = UIImageView(cornerRadius: 8)
     let nameLabel = UILabel(text: "App Name", font: .systemFont(ofSize: 16))
     let companyLabel = UILabel(text: "Company Name", font: .systemFont(ofSize: 13))
     let getButton = UIButton(title: "GET")
-    
-    
     let nameLabelSize: CGFloat = 16
     
     override init(frame: CGRect) {
@@ -46,8 +40,6 @@ class AppsRowCell: UICollectionViewCell {
         stackView.alignment = .center
         addSubview(stackView)
         stackView.fillSuperview()
-        
-        
     }
     
     required init?(coder: NSCoder) {

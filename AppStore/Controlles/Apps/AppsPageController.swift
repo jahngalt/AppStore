@@ -54,14 +54,12 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         //synch our data fetching
         let dispatchGroup = DispatchGroup()
         
-        
         dispatchGroup.enter()
         Service.shared.fetchTopGrossing { (appGroup, error) in
             print("123")
             
             dispatchGroup.leave()
             group1 = appGroup
-
         }
         
         dispatchGroup.enter()
@@ -83,7 +81,6 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
             dispatchGroup.leave()
             self.socialApps = apps ?? []
         }
-        
         //completion
         dispatchGroup.notify(queue: .main) {
             
@@ -104,6 +101,7 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
             self.collectionView.reloadData()
         }
     }   
+
     
     //dequeue reusable header
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -134,6 +132,13 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         cell.titleLabel.text = appGroup.feed.title
         cell.horizontalController.appGroup = appGroup
         cell.horizontalController.collectionView.reloadData()
+        cell.horizontalController.didSelectHandler = { [weak self] feedResult in
+            
+            let detailController = AppDetailController()
+            detailController.appId = feedResult.id
+            detailController.navigationItem.title = feedResult.name
+            self?.navigationController?.pushViewController(detailController, animated: true)
+        }
         
         return cell
     }
