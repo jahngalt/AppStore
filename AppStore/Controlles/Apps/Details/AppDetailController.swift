@@ -10,6 +10,7 @@ import UIKit
 class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     let cellId = "CellId"
+    let previewCellId = "PreviewCellId"
     
     var appId: String! {
         didSet {
@@ -32,29 +33,43 @@ class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayou
         
         navigationItem.largeTitleDisplayMode = .never
         collectionView.backgroundColor = .white
+        
         collectionView.register(AppDetailCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(PreviewCell.self, forCellWithReuseIdentifier: previewCellId)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppDetailCell
         
-        cell.nameLabel.text = app?.trackName
-        cell.releaseNotesLabel.text = app?.releaseNotes
-        cell.appIconImageView.sd_setImage(with: URL(string: app?.artworkUrl512  ?? ""))
-        cell.priceButton.setTitle(app?.formattedPrice, for: .normal)
+        if indexPath.item == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppDetailCell
+            cell.app = app
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: previewCellId, for: indexPath) as! PreviewCell
+            cell.horizontalController.app = self.app
+            return cell
+        }
         
-        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.frame.width, height: 300)
+        
+        if indexPath.item == 0 {
+            //calculate the necessary space for our cell release notes
+            let dummyCell = AppDetailCell(frame: .init(x: 0, y: 0, width: view.frame.width, height: 1000))
+            
+            dummyCell.app = app
+            dummyCell.layoutIfNeeded()
+            
+            let estimatedSize = dummyCell.systemLayoutSizeFitting(.init(width: view.frame.width, height: 1000))
+            
+            return .init(width: view.frame.width, height: estimatedSize.height)
+        } else {
+            return .init(width: view.frame.width, height:  500)
+        }
     }
-    
-    
-    
-    
 }
