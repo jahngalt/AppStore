@@ -32,6 +32,7 @@
 		ED9102C32536DBB200D23B92 /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9102C22536DBB200D23B92 /* HorizontalSnappingController.swift */; };
 		ED9102CF25379B2400D23B92 /* BetterSnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9102CE25379B2400D23B92 /* BetterSnappingLayout.swift */; };
 		ED9102D32538289500D23B92 /* AppDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9102D22538289500D23B92 /* AppDetailController.swift */; };
+		ED9102D72538544300D23B92 /* AppDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9102D62538544300D23B92 /* AppDetailCell.swift */; };
 		EDA31360252342B000B5B6EF /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA3135F252342B000B5B6EF /* Service.swift */; };
 		EDE62495251FBB0200D43772 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE62494251FBB0200D43772 /* VerticalStackView.swift */; };
 		EDE624992521FFFE00D43772 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE624982521FFFE00D43772 /* SearchResult.swift */; };
@@ -67,6 +68,7 @@
 		ED9102C22536DBB200D23B92 /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
 		ED9102CE25379B2400D23B92 /* BetterSnappingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterSnappingLayout.swift; sourceTree = "<group>"; };
 		ED9102D22538289500D23B92 /* AppDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailController.swift; sourceTree = "<group>"; };
+		ED9102D62538544300D23B92 /* AppDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailCell.swift; sourceTree = "<group>"; };
 		EDA3135F252342B000B5B6EF /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		EDE62494251FBB0200D43772 /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 		EDE624982521FFFE00D43772 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		ED412F432527B2A800D26449 /* Apps */ = {
 			isa = PBXGroup;
 			children = (
+				ED9102D52538542A00D23B92 /* Details */,
 				ED412F442527B2BC00D26449 /* AppsGroupCell.swift */,
 				ED412F4B25299A9800D26449 /* AppsRowCell.swift */,
 				ED3E9A632529D6F600DA051E /* AppsPageHeader.swift */,
@@ -204,6 +207,14 @@
 			isa = PBXGroup;
 			children = (
 				ED9102D22538289500D23B92 /* AppDetailController.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		ED9102D52538542A00D23B92 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				ED9102D62538544300D23B92 /* AppDetailCell.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -360,6 +371,7 @@
 				ED412F4F25299C8C00D26449 /* Extensions.swift in Sources */,
 				EDA31360252342B000B5B6EF /* Service.swift in Sources */,
 				ED3E9A6E252B0BC000DA051E /* AppGroup.swift in Sources */,
+				ED9102D72538544300D23B92 /* AppDetailCell.swift in Sources */,
 				ED3E9A6B252ADBA700DA051E /* AppsHeaderCell.swift in Sources */,
 				ED8BD25C251F711E003AB0BA /* UIView+Layout.swift in Sources */,
 				ED7D0714251C83EF000F72C1 /* SceneDelegate.swift in Sources */,
