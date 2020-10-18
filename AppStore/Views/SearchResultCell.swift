@@ -17,6 +17,7 @@ class SearchResultCell: UICollectionViewCell {
         didSet {
             nameLabel.text = appResult.trackName
             categoryLabel.text = appResult.primaryGenreName
+            
             ratingsLabel.text = "Rating: \(appResult.averageUserRating ?? 0)"
             
             

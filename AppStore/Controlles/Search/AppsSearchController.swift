@@ -98,6 +98,12 @@ class AppsSearchController: BaseListController, UICollectionViewDelegateFlowLayo
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
             //all code located here will implementing with delay with 0,5 sec
             Service.shared.fetchApps(searchItem: searchText) { (res, err) in
+                
+                if let err = err {
+                    print("there is some error in the searching process: ", err)
+                    return
+                }
+                
                 self.appResults = res?.results ?? []
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
