@@ -30,6 +30,12 @@ class AppsSearchController: BaseListController, UICollectionViewDelegateFlowLayo
     }()
     
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let appId = String(appResults[indexPath.item].trackId)
+        let appDetailController = AppDetailController(appId: appId)
+        navigationController?.pushViewController(appDetailController, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(SearchResultCell.self, forCellWithReuseIdentifier: cellId)
