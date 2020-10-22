@@ -62,7 +62,10 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         redView.layer.cornerRadius = 16
         //add animation
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
+            
             redView.frame = self.view.frame
+            
+            self.tabBarController?.tabBar.frame.origin.y = self.view.frame.height
         }, completion: nil)
     }
     
@@ -71,6 +74,11 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         //gesture.view?.removeFromSuperview()
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
             gesture.view?.frame = self.startingFrame ?? .zero
+            
+            if let tabBarFrame = self.tabBarController?.tabBar.frame {
+                self.tabBarController?.tabBar.frame.origin.y = self.view.frame.height - tabBarFrame.height
+            }
+            
         }, completion: { _ in
             gesture.view?.removeFromSuperview()
         })
