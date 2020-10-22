@@ -12,6 +12,8 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     fileprivate let cellId = "cellId"
     var startingFrame: CGRect?
     
+    var appFullScreenController: UIViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
@@ -22,7 +24,6 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4
-    
     }
     
     
@@ -49,15 +50,21 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let redView = UIView()
-        redView.backgroundColor = .red
+        let appFullScreenController = AppFullScreenController()
+        let redView = appFullScreenController.view!
+        
         redView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleRemoveRedView)))
+        
         view.addSubview(redView)
-        //redView.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
+        addChild(appFullScreenController)
+        self.appFullScreenController = appFullScreenController
+        
         guard let cell = collectionView.cellForItem(at: indexPath) else  { return }
+        
         //absolute coordinates of cell
         guard let startingFrame = cell.superview?.convert(cell.frame, to: nil) else { return }
         self.startingFrame = startingFrame
+        
         redView.frame = startingFrame
         redView.layer.cornerRadius = 16
         //add animation
@@ -71,7 +78,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     
     @objc func handleRemoveRedView(gesture: UITapGestureRecognizer) {
-        //gesture.view?.removeFromSuperview()
+        
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
             gesture.view?.frame = self.startingFrame ?? .zero
             
@@ -81,6 +88,8 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             
         }, completion: { _ in
             gesture.view?.removeFromSuperview()
+            //remove childController from parent
+            self.appFullScreenController.removeFromParent()
         })
     }
     
