@@ -22,7 +22,7 @@ class AppsHorizonalController: HorizontalSnappingController, UICollectionViewDel
         
         collectionView.backgroundColor = .white
         collectionView.register(AppsRowCell.self, forCellWithReuseIdentifier: cellId)
-        //collectionView.showsHorizontalScrollIndicator = false
+        
         collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
 
     }

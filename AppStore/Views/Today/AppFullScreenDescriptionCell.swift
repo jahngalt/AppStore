@@ -33,6 +33,8 @@ class AppFullScreenDescriptionCell: UITableViewCell {
         
         addSubview(descriptionLabel)
         descriptionLabel.fillSuperview(padding: .init(top: 0, left: 24, bottom: 0, right: 24))
+        layer.cornerRadius = 16
+        
     }
     
     

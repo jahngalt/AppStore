@@ -9,12 +9,23 @@ import UIKit
 
 class AppFullScreenController: UITableViewController {
     
+    var dismissHandler: (() -> ())?
+    
+    let headerCellId = "headerCellId"
+    let cellId = "cellId"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //hide lines in tableView
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
+        
+        tableView.register(AppFullScreenHeaderCell.self, forCellReuseIdentifier: headerCellId)
+        tableView.register(AppFullScreenDescriptionCell.self, forCellReuseIdentifier: cellId)
+        
+        tableView.allowsSelection = false
     }
     
     
@@ -26,20 +37,22 @@ class AppFullScreenController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.item == 0 {
-            let cell = UITableViewCell()
-            let todayCell = TodayCell()
-            cell.addSubview(todayCell)
-            todayCell.centerInSuperview(size: .init(width: 250, height: 250))
-            cell.selectionStyle = .none
-            return cell
+            let headerCell = tableView.dequeueReusableCell(withIdentifier: headerCellId) as! AppFullScreenHeaderCell
+            headerCell.closeButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
+            
+            return headerCell
+
         }
         
-        
-        let cell = AppFullScreenDescriptionCell()
-        cell.selectionStyle = .none
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! AppFullScreenDescriptionCell
         return cell 
     }
     
+    
+    @objc fileprivate func handleDismiss(button: UIButton) {
+        button.isHidden = true
+        dismissHandler?()
+    }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
@@ -47,4 +60,5 @@ class AppFullScreenController: UITableViewController {
         }
         return super.tableView(tableView, heightForRowAt: indexPath)
     }
+    
 }
