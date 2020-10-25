@@ -11,13 +11,16 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     fileprivate let cellId = "cellId"
     var startingFrame: CGRect?
-    
     var appFullScreenController: AppFullScreenController!
-    
     var topConstraint: NSLayoutConstraint?
     var leadingConstraint: NSLayoutConstraint?
     var widthConstraint: NSLayoutConstraint?
     var heightConstraint: NSLayoutConstraint?
+    
+    let items = [
+        TodayItem.init(category: "LIFE HACK", title: "Utilizing your time", image: #imageLiteral(resourceName: "garden"), desctiption: "All the tools and apps you need to intelligently organize your life the right way", backgroundColor: .white),
+        TodayItem.init(category: "LIFE HACK", title: "Utilizing your time", image: #imageLiteral(resourceName: "holiday"), desctiption: "All the tools and apps you need to intelligently organize your life the right way", backgroundColor: #colorLiteral(red: 0.9832287431, green: 0.9658947587, blue: 0.7224543095, alpha: 1))
+    ]
     
     
     override func viewDidLoad() {
@@ -30,12 +33,14 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return items.count
     }
     
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! TodayCell
+        cell.todayItem = items[indexPath.item]
         return cell
     }
     
@@ -58,16 +63,14 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let appFullScreenController = AppFullScreenController()
-        
+        appFullScreenController.todayItem = items[indexPath.row]
         appFullScreenController.dismissHandler = {
             self.handleRemoveRedView()
         }
         
         let fullScreenView = appFullScreenController.view!
-        
         view.addSubview(fullScreenView)
         addChild(appFullScreenController)
-        
         self.appFullScreenController = appFullScreenController
         
         guard let cell = collectionView.cellForItem(at: indexPath) else  { return }
@@ -84,7 +87,8 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         leadingConstraint = fullScreenView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: startingFrame.origin.x)
         widthConstraint = fullScreenView.widthAnchor.constraint(equalToConstant: startingFrame.width)
         heightConstraint = fullScreenView.heightAnchor.constraint(equalToConstant: startingFrame.height)
-        [topConstraint, leadingConstraint, widthConstraint, heightConstraint].forEach({$0?.isActive = true })
+        
+        [topConstraint, leadingConstraint, widthConstraint, heightConstraint].forEach({$0?.isActive = true})
         self.view.layoutIfNeeded()
         
         fullScreenView.layer.cornerRadius = 16
@@ -125,6 +129,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             self.appFullScreenController.view.removeFromSuperview()
             //remove childController from parent
             self.appFullScreenController.removeFromParent()
+            
         })
     }
     

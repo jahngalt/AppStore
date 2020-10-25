@@ -23,18 +23,26 @@ class AppFullScreenHeaderCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         
-        addSubview(todayCell)
         
-        todayCell.centerInSuperview(size: .init(width: 250, height: 250))
-        //addSubview(closeButton)
+        addSubview(todayCell)
+        todayCell.fillSuperview()
+        
         contentView.addSubview(closeButton)
+        closeButton.anchor(top: topAnchor, leading: nil, bottom: nil, trailing: trailingAnchor, padding: .init(top: 12, left: 0, bottom: 0, right: 12), size: .init(width: 80, height: 38))
+        
+//        //addSubview(todayCell)
+//        contentView.addSubview(todayCell)
+//
+//        todayCell.centerInSuperview(size: .init(width: 250, height: 250))
+//        //addSubview(closeButton)
+//        contentView.addSubview(closeButton)
         
         layer.cornerRadius = 16
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.main.scale
         
        
-        closeButton.anchor(top: topAnchor, leading: nil, bottom: nil, trailing: trailingAnchor, padding: .init(top: 12, left: 0, bottom: 0, right: 12), size: .init(width: 80, height: 38))
+        //closeButton.anchor(top: topAnchor, leading: nil, bottom: nil, trailing: trailingAnchor, padding: .init(top: 12, left: 0, bottom: 0, right: 12), size: .init(width: 80, height: 38))
     }
     
     

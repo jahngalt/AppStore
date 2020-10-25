@@ -13,6 +13,7 @@ class AppFullScreenController: UITableViewController {
     
     let headerCellId = "headerCellId"
     let cellId = "cellId"
+    var todayItem: TodayItem? 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +40,7 @@ class AppFullScreenController: UITableViewController {
         if indexPath.item == 0 {
             let headerCell = tableView.dequeueReusableCell(withIdentifier: headerCellId) as! AppFullScreenHeaderCell
             headerCell.closeButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
-            
+            headerCell.todayCell.todayItem = todayItem
             return headerCell
 
         }
