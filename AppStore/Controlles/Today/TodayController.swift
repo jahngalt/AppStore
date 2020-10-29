@@ -9,7 +9,12 @@ import UIKit
 
 class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
-    fileprivate let cellId = "cellId"
+//    fileprivate let cellId = "cellId"
+//    fileprivate let multipleCellId = "multipleCellId"
+    
+    //cell size
+    static let cellSize: CGFloat = 500
+    
     var startingFrame: CGRect?
     var appFullScreenController: AppFullScreenController!
     var topConstraint: NSLayoutConstraint?
@@ -18,8 +23,9 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     var heightConstraint: NSLayoutConstraint?
     
     let items = [
-        TodayItem.init(category: "LIFE HACK", title: "Utilizing your time", image: #imageLiteral(resourceName: "garden"), desctiption: "All the tools and apps you need to intelligently organize your life the right way", backgroundColor: .white),
-        TodayItem.init(category: "LIFE HACK", title: "Utilizing your time", image: #imageLiteral(resourceName: "holiday"), desctiption: "All the tools and apps you need to intelligently organize your life the right way", backgroundColor: #colorLiteral(red: 0.9832287431, green: 0.9658947587, blue: 0.7224543095, alpha: 1))
+        TodayItem.init(category: "The Daily List", title: "Test-drive These car play apps", image: #imageLiteral(resourceName: "garden"), desctiption: "", backgroundColor: .white, cellType: .multiple),
+        TodayItem.init(category: "LIFE HACK", title: "Utilizing your time", image: #imageLiteral(resourceName: "garden"), desctiption: "All the tools and apps you need to intelligently organize your life the right way", backgroundColor: .white, cellType: .single),
+        TodayItem.init(category: "LIFE HACK", title: "Utilizing your time", image: #imageLiteral(resourceName: "holiday"), desctiption: "All the tools and apps you need to intelligently organize your life the right way", backgroundColor: #colorLiteral(red: 0.9832287431, green: 0.9658947587, blue: 0.7224543095, alpha: 1), cellType: .single)
     ]
     
     
@@ -27,8 +33,12 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
         collectionView.backgroundColor = #colorLiteral(red: 0.948936522, green: 0.9490727782, blue: 0.9489067197, alpha: 1)
-        collectionView.register(TodayCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(TodayCell.self, forCellWithReuseIdentifier: TodayItem.CellType.single.rawValue)
+        collectionView.register(TodayAppMultipleCell.self, forCellWithReuseIdentifier: TodayItem.CellType.multiple.rawValue)
         collectionView.showsVerticalScrollIndicator = false
+        
+        
+        
     }
     
     
@@ -39,14 +49,17 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! TodayCell
+        
+        let cellId = items[indexPath.item].cellType.rawValue
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! BaseTodayCell
         cell.todayItem = items[indexPath.item]
         return cell
     }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.frame.width - 64, height: 450)
+        return .init(width: view.frame.width - 64, height: TodayController.cellSize)
     }
     
     
@@ -68,10 +81,13 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             self.handleRemoveRedView()
         }
         
+        
         let fullScreenView = appFullScreenController.view!
         view.addSubview(fullScreenView)
         addChild(appFullScreenController)
         self.appFullScreenController = appFullScreenController
+        
+        self.collectionView.isUserInteractionEnabled = false
         
         guard let cell = collectionView.cellForItem(at: indexPath) else  { return }
         
@@ -102,6 +118,13 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             self.heightConstraint?.constant = self.view.frame.height
             self.view.layoutIfNeeded()
             self.tabBarController?.tabBar.frame.origin.y = self.view.frame.height
+            
+            guard let cell = self.appFullScreenController.tableView.cellForRow(at: [0, 0]) as? AppFullScreenHeaderCell else { return }
+            
+            cell.todayCell.topConstraint.constant = 48
+            cell.layoutIfNeeded()
+            
+            
         }, completion: nil)
     }
     
@@ -117,9 +140,12 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             self.heightConstraint?.constant = startingFrame.height
             self.view.layoutIfNeeded()
             self.appFullScreenController.tableView.contentOffset = .zero
-            
             self.tabBarController?.tabBar.frame.origin.y = self.view.frame.height
             
+            guard let cell = self.appFullScreenController.tableView.cellForRow(at: [0, 0]) as? AppFullScreenHeaderCell else { return }
+            
+            cell.todayCell.topConstraint.constant = 24
+            cell.layoutIfNeeded()
             
             if let tabBarFrame = self.tabBarController?.tabBar.frame {
                 self.tabBarController?.tabBar.frame.origin.y = self.view.frame.height - tabBarFrame.height
@@ -129,7 +155,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             self.appFullScreenController.view.removeFromSuperview()
             //remove childController from parent
             self.appFullScreenController.removeFromParent()
-            
+            self.collectionView.isUserInteractionEnabled = true
         })
     }
     

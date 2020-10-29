@@ -13,7 +13,8 @@ class AppFullScreenController: UITableViewController {
     
     let headerCellId = "headerCellId"
     let cellId = "cellId"
-    var todayItem: TodayItem? 
+    var todayItem: TodayItem?
+    var statusBarHeight: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,12 @@ class AppFullScreenController: UITableViewController {
         tableView.register(AppFullScreenDescriptionCell.self, forCellReuseIdentifier: cellId)
         
         tableView.allowsSelection = false
+        
+        tableView.contentInsetAdjustmentBehavior = .never
+        let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+            statusBarHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        
+        tableView.contentInset = .init(top: 0, left: 0, bottom: statusBarHeight, right: 0)
     }
     
     
@@ -41,6 +48,7 @@ class AppFullScreenController: UITableViewController {
             let headerCell = tableView.dequeueReusableCell(withIdentifier: headerCellId) as! AppFullScreenHeaderCell
             headerCell.closeButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
             headerCell.todayCell.todayItem = todayItem
+            headerCell.todayCell.layer.cornerRadius = 0
             return headerCell
 
         }
@@ -57,7 +65,7 @@ class AppFullScreenController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 450
+            return TodayController.cellSize
         }
         return super.tableView(tableView, heightForRowAt: indexPath)
     }
