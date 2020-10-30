@@ -47,6 +47,8 @@
 		EDA31360252342B000B5B6EF /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA3135F252342B000B5B6EF /* Service.swift */; };
 		EDB0A5E92549CCFC00722ECD /* TodayAppMultipleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0A5E82549CCFC00722ECD /* TodayAppMultipleCell.swift */; };
 		EDB0A5EC254AD1E700722ECD /* BaseTodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0A5EB254AD1E700722ECD /* BaseTodayCell.swift */; };
+		EDB0A5EF254AE6A100722ECD /* TodayMultipleAppsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0A5EE254AE6A100722ECD /* TodayMultipleAppsController.swift */; };
+		EDB0A5F2254AF60F00722ECD /* MultipleAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0A5F1254AF60F00722ECD /* MultipleAppCell.swift */; };
 		EDC434FD25422ED900E47771 /* AppFullScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC434FC25422ED900E47771 /* AppFullScreenController.swift */; };
 		EDC43500254232A300E47771 /* AppFullScreenDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC434FF254232A300E47771 /* AppFullScreenDescriptionCell.swift */; };
 		EDE62495251FBB0200D43772 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE62494251FBB0200D43772 /* VerticalStackView.swift */; };
@@ -98,6 +100,8 @@
 		EDA3135F252342B000B5B6EF /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		EDB0A5E82549CCFC00722ECD /* TodayAppMultipleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAppMultipleCell.swift; sourceTree = "<group>"; };
 		EDB0A5EB254AD1E700722ECD /* BaseTodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTodayCell.swift; sourceTree = "<group>"; };
+		EDB0A5EE254AE6A100722ECD /* TodayMultipleAppsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayMultipleAppsController.swift; sourceTree = "<group>"; };
+		EDB0A5F1254AF60F00722ECD /* MultipleAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleAppCell.swift; sourceTree = "<group>"; };
 		EDC434FC25422ED900E47771 /* AppFullScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFullScreenController.swift; sourceTree = "<group>"; };
 		EDC434FF254232A300E47771 /* AppFullScreenDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFullScreenDescriptionCell.swift; sourceTree = "<group>"; };
 		EDE62494251FBB0200D43772 /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 			children = (
 				ED77C1A02540598F000B52E4 /* TodayController.swift */,
 				EDC434FC25422ED900E47771 /* AppFullScreenController.swift */,
+				EDB0A5EE254AE6A100722ECD /* TodayMultipleAppsController.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 				ED011B98254367E900325AFE /* AppFullScreenHeaderCell.swift */,
 				EDB0A5E82549CCFC00722ECD /* TodayAppMultipleCell.swift */,
 				EDB0A5EB254AD1E700722ECD /* BaseTodayCell.swift */,
+				EDB0A5F1254AF60F00722ECD /* MultipleAppCell.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -446,6 +452,7 @@
 				ED8BD258251E0149003AB0BA /* SearchResultCell.swift in Sources */,
 				ED3E9A672529D9A300DA051E /* AppsHeaderHorizontalController.swift in Sources */,
 				ED3E9A642529D6F600DA051E /* AppsPageHeader.swift in Sources */,
+				EDB0A5EF254AE6A100722ECD /* TodayMultipleAppsController.swift in Sources */,
 				EDB0A5EC254AD1E700722ECD /* BaseTodayCell.swift in Sources */,
 				EDE62495251FBB0200D43772 /* VerticalStackView.swift in Sources */,
 				ED412F4F25299C8C00D26449 /* Extensions.swift in Sources */,
@@ -460,6 +467,7 @@
 				ED7D0714251C83EF000F72C1 /* SceneDelegate.swift in Sources */,
 				ED412F492528F0D700D26449 /* AppsHorizontalController.swift in Sources */,
 				EDC434FD25422ED900E47771 /* AppFullScreenController.swift in Sources */,
+				EDB0A5F2254AF60F00722ECD /* MultipleAppCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

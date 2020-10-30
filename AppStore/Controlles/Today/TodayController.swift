@@ -23,9 +23,11 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     var heightConstraint: NSLayoutConstraint?
     
     let items = [
-        TodayItem.init(category: "The Daily List", title: "Test-drive These car play apps", image: #imageLiteral(resourceName: "garden"), desctiption: "", backgroundColor: .white, cellType: .multiple),
+        
         TodayItem.init(category: "LIFE HACK", title: "Utilizing your time", image: #imageLiteral(resourceName: "garden"), desctiption: "All the tools and apps you need to intelligently organize your life the right way", backgroundColor: .white, cellType: .single),
-        TodayItem.init(category: "LIFE HACK", title: "Utilizing your time", image: #imageLiteral(resourceName: "holiday"), desctiption: "All the tools and apps you need to intelligently organize your life the right way", backgroundColor: #colorLiteral(red: 0.9832287431, green: 0.9658947587, blue: 0.7224543095, alpha: 1), cellType: .single)
+        TodayItem.init(category: "The Daily List", title: "Test-drive These car play apps", image: #imageLiteral(resourceName: "garden"), desctiption: "", backgroundColor: .white, cellType: .multiple),
+        TodayItem.init(category: "LIFE HACK", title: "Utilizing your time", image: #imageLiteral(resourceName: "holiday"), desctiption: "All the tools and apps you need to intelligently organize your life the right way", backgroundColor: #colorLiteral(red: 0.9832287431, green: 0.9658947587, blue: 0.7224543095, alpha: 1), cellType: .single),
+        TodayItem.init(category: "The Daily List", title: "Test-drive These car play apps", image: #imageLiteral(resourceName: "garden"), desctiption: "", backgroundColor: .white, cellType: .multiple)
     ]
     
     
