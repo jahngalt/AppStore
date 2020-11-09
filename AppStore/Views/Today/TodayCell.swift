@@ -22,6 +22,7 @@ class TodayCell: BaseTodayCell {
             imageView.image = todayItem.image
             descriptionLabel.text = todayItem.desctiption
             backgroundColor = todayItem.backgroundColor
+            backgroundView?.backgroundColor = todayItem.backgroundColor
         }
     }
     
@@ -32,12 +33,14 @@ class TodayCell: BaseTodayCell {
         backgroundColor = .white
         layer.cornerRadius = 16
         
-        clipsToBounds = true 
+        //clipsToBounds = true 
         imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         
         let imageContainerView = UIView()
+        //imageContainerView.backgroundColor = .yellow
         imageContainerView.addSubview(imageView)
-        imageView.centerInSuperview(size: .init(width: 240, height: 240))
+        imageView.centerInSuperview(size: .init(width: 300, height: 300))
         let stackView = VerticalStackView(arrangedSubviews: [categoryLabel, titleLabel, imageContainerView, descriptionLabel], spacing: 8)
         addSubview(stackView)
         

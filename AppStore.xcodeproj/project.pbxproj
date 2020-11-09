@@ -19,6 +19,7 @@
 		ED412F492528F0D700D26449 /* AppsHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED412F482528F0D700D26449 /* AppsHorizontalController.swift */; };
 		ED412F4C25299A9800D26449 /* AppsRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED412F4B25299A9800D26449 /* AppsRowCell.swift */; };
 		ED412F4F25299C8C00D26449 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED412F4E25299C8C00D26449 /* Extensions.swift */; };
+		ED54C7802550524900E059D3 /* BackEnabledNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED54C77F2550524900E059D3 /* BackEnabledNavigationController.swift */; };
 		ED77C1A12540598F000B52E4 /* TodayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED77C1A02540598F000B52E4 /* TodayController.swift */; };
 		ED77C1A525405B1B000B52E4 /* TodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED77C1A425405B1B000B52E4 /* TodayCell.swift */; };
 		ED7D0712251C83EF000F72C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7D0711251C83EF000F72C1 /* AppDelegate.swift */; };
@@ -70,6 +71,7 @@
 		ED412F482528F0D700D26449 /* AppsHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHorizontalController.swift; sourceTree = "<group>"; };
 		ED412F4B25299A9800D26449 /* AppsRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsRowCell.swift; sourceTree = "<group>"; };
 		ED412F4E25299C8C00D26449 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		ED54C77F2550524900E059D3 /* BackEnabledNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackEnabledNavigationController.swift; sourceTree = "<group>"; };
 		ED77C1A02540598F000B52E4 /* TodayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayController.swift; sourceTree = "<group>"; };
 		ED77C1A425405B1B000B52E4 /* TodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCell.swift; sourceTree = "<group>"; };
 		ED7D070E251C83EF000F72C1 /* AppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +176,7 @@
 				ED77C1A02540598F000B52E4 /* TodayController.swift */,
 				EDC434FC25422ED900E47771 /* AppFullScreenController.swift */,
 				EDB0A5EE254AE6A100722ECD /* TodayMultipleAppsController.swift */,
+				ED54C77F2550524900E059D3 /* BackEnabledNavigationController.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				ED7D0714251C83EF000F72C1 /* SceneDelegate.swift in Sources */,
 				ED412F492528F0D700D26449 /* AppsHorizontalController.swift in Sources */,
 				EDC434FD25422ED900E47771 /* AppFullScreenController.swift in Sources */,
+				ED54C7802550524900E059D3 /* BackEnabledNavigationController.swift in Sources */,
 				EDB0A5F2254AF60F00722ECD /* MultipleAppCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

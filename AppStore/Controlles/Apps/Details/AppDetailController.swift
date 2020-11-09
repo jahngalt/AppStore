@@ -44,6 +44,10 @@ class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayou
     }
     
     
+    override var prefersStatusBarHidden: Bool {
+        return true 
+    }
+    
     fileprivate func fetchData() {
         
         let urlString = "https://itunes.apple.com/lookup?id=\(appId)"
