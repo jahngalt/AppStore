@@ -19,6 +19,7 @@
 		ED412F492528F0D700D26449 /* AppsHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED412F482528F0D700D26449 /* AppsHorizontalController.swift */; };
 		ED412F4C25299A9800D26449 /* AppsRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED412F4B25299A9800D26449 /* AppsRowCell.swift */; };
 		ED412F4F25299C8C00D26449 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED412F4E25299C8C00D26449 /* Extensions.swift */; };
+		ED53089E2560772E004C07C2 /* AppsCompositionalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED53089D2560772E004C07C2 /* AppsCompositionalView.swift */; };
 		ED54C7802550524900E059D3 /* BackEnabledNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED54C77F2550524900E059D3 /* BackEnabledNavigationController.swift */; };
 		ED77C1A12540598F000B52E4 /* TodayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED77C1A02540598F000B52E4 /* TodayController.swift */; };
 		ED77C1A525405B1B000B52E4 /* TodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED77C1A425405B1B000B52E4 /* TodayCell.swift */; };
@@ -74,6 +75,7 @@
 		ED412F482528F0D700D26449 /* AppsHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHorizontalController.swift; sourceTree = "<group>"; };
 		ED412F4B25299A9800D26449 /* AppsRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsRowCell.swift; sourceTree = "<group>"; };
 		ED412F4E25299C8C00D26449 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		ED53089D2560772E004C07C2 /* AppsCompositionalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsCompositionalView.swift; sourceTree = "<group>"; };
 		ED54C77F2550524900E059D3 /* BackEnabledNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackEnabledNavigationController.swift; sourceTree = "<group>"; };
 		ED77C1A02540598F000B52E4 /* TodayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayController.swift; sourceTree = "<group>"; };
 		ED77C1A425405B1B000B52E4 /* TodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCell.swift; sourceTree = "<group>"; };
@@ -176,6 +178,14 @@
 			path = Apps;
 			sourceTree = "<group>";
 		};
+		ED53089C25607700004C07C2 /* Compositional */ = {
+			isa = PBXGroup;
+			children = (
+				ED53089D2560772E004C07C2 /* AppsCompositionalView.swift */,
+			);
+			path = Compositional;
+			sourceTree = "<group>";
+		};
 		ED77C19F2540596A000B52E4 /* Today */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +258,7 @@
 		ED7D072E251D1F58000F72C1 /* Controlles */ = {
 			isa = PBXGroup;
 			children = (
+				ED53089C25607700004C07C2 /* Compositional */,
 				ED85FA5C255D37E5007779E0 /* Music */,
 				ED77C19F2540596A000B52E4 /* Today */,
 				ED412F3A2527664700D26449 /* Apps */,
@@ -486,6 +497,7 @@
 				EDB0A5EC254AD1E700722ECD /* BaseTodayCell.swift in Sources */,
 				EDE62495251FBB0200D43772 /* VerticalStackView.swift in Sources */,
 				ED412F4F25299C8C00D26449 /* Extensions.swift in Sources */,
+				ED53089E2560772E004C07C2 /* AppsCompositionalView.swift in Sources */,
 				ED9102ED2539C25600D23B92 /* ReviewCell.swift in Sources */,
 				EDA31360252342B000B5B6EF /* Service.swift in Sources */,
 				ED3E9A6E252B0BC000DA051E /* AppGroup.swift in Sources */,
