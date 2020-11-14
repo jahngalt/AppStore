@@ -56,7 +56,6 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         
         dispatchGroup.enter()
         Service.shared.fetchTopGrossing { (appGroup, error) in
-            print("123")
             
             dispatchGroup.leave()
             group1 = appGroup
@@ -64,14 +63,14 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         
         dispatchGroup.enter()
         Service.shared.fetchGames { (appGroup, error) in
-            print("456")
+            
             dispatchGroup.leave()
             group2 = appGroup
         }
         
         dispatchGroup.enter()
         Service.shared.fetchAppGroup(urlString: "https://rss.itunes.apple.com/api/v1/us/ios-apps/new-apps-we-love/all/10/explicit.json") { (appGroup, Err) in
-            print("789")
+            
             dispatchGroup.leave()
             group3 = appGroup
         }
